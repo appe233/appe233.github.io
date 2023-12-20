@@ -26,7 +26,7 @@
 <meta property="og:description" content="按control键时右键打开">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-04T02:47:41.000Z">
-<meta property="article:modified_time" content="2023-12-19T14:37:31.637Z">
+<meta property="article:modified_time" content="2023-12-20T11:48:25.687Z">
 <meta property="article:author" content="APPE">
 <meta property="article:tag" content="mac">
 <meta name="twitter:card" content="summary_large_image">
@@ -262,7 +262,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2023年12月19日 晚上
+                    本文最后更新于 2023年12月20日 晚上
                   
                 
               </p>
@@ -282,6 +282,10 @@ src="https://fastly.jsdelivr.net/gh/appe233/Pictures@master/pis/Mac%E5%AE%89%E8%
 <p>然后就可以选择打开了</p>
 <p><img
 src="https://fastly.jsdelivr.net/gh/appe233/Pictures@master/pis/Mac%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3-3.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="更新">更新</h3>
+<p>的确有的软件单靠option不行。这时候还是要用xatter。我写了个alias方便以后用。把这个加到shell配置文件里面去接可以了。比如说zsh就加到zshrc里面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">alias</span> unlock=<span class="hljs-string">&quot;sudo xattr -r -d com.apple.quarantine&quot;</span><br></code></pre></td></tr></table></figure>
+<p>以后想用可以输<code>unlock path_to_the_app</code>。</p>
 
                 
               </div>
