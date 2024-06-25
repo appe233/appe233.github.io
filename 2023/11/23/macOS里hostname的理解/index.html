@@ -18,17 +18,17 @@
   <meta name="author" content="APPE">
   <meta name="keywords" content="">
   
-    <meta name="description" content="一切的起因 我每次打开打开终端的时候都会看到我的主机名是一坨乱码，之前是没怎么管。现在就想弄清楚到底是怎么回事。我难道不是设置了主机名吗？还是说这里不是我所设置的主机名，另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 首先有三个hostname： HostName 主机名 我已不太清楚这个有什么用。总之，这个就是在shell prompt里面出现的。其不能在maco">
+    <meta name="description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS里hostname的理解">
 <meta property="og:url" content="https://www.appe.moe/2023/11/23/macOS%E9%87%8Chostname%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="APPE233">
-<meta property="og:description" content="一切的起因 我每次打开打开终端的时候都会看到我的主机名是一坨乱码，之前是没怎么管。现在就想弄清楚到底是怎么回事。我难道不是设置了主机名吗？还是说这里不是我所设置的主机名，另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 首先有三个hostname： HostName 主机名 我已不太清楚这个有什么用。总之，这个就是在shell prompt里面出现的。其不能在maco">
+<meta property="og:description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png">
 <meta property="og:image" content="https://s2.loli.net/2023/11/23/B79H6FVZEfLXKQG.png">
 <meta property="article:published_time" content="2023-11-23T03:07:46.000Z">
-<meta property="article:modified_time" content="2023-12-19T14:37:31.637Z">
+<meta property="article:modified_time" content="2024-06-25T06:19:26.153Z">
 <meta property="article:author" content="APPE">
 <meta property="article:tag" content="mac">
 <meta name="twitter:card" content="summary_large_image">
@@ -70,11 +70,15 @@
 
 
 
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_4598441_9wb6f55tgjs.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"www.appe.moe","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#E8166C","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"706UQtaRHvKRhMferD8TELBm-MdYXbMMI","app_key":"h9J08bn0ZYxThtDsNQwdRdOx","server_url":null,"path":"window.location.pathname","ignore_local":true},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"www.appe.moe","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":50,"cursorChar":"_","loop":false,"scope":["home"]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#E8166C","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":true},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -84,21 +88,6 @@
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-  
-
 
 
   
@@ -115,7 +104,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>APPE blog</strong>
+      <strong>APPE Domain</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -146,7 +135,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
+                <i class="iconfont icon-books"></i>
                 <span>归档</span>
               </a>
             </li>
@@ -158,7 +147,7 @@
           
             <li class="nav-item">
               <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
+                <i class="iconfont icon-tags"></i>
                 <span>标签</span>
               </a>
             </li>
@@ -265,7 +254,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2023年12月19日 晚上
+                    本文最后更新于 2024年6月25日 下午
                   
                 
               </p>
@@ -274,36 +263,44 @@
               <div class="markdown-body">
                 
                 <h2 id="一切的起因">一切的起因</h2>
-<p>我每次打开打开终端的时候都会看到我的主机名是一坨乱码，之前是没怎么管。现在就想弄清楚到底是怎么回事。我难道不是设置了主机名吗？还是说这里不是我所设置的主机名，另有其物。</p>
+<p>每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">appe@a6c6xxx ~&gt;<br></code></pre></td></tr></table></figure>
 <h2 id="各个hostname的含义">各个hostname的含义</h2>
-<p>首先有三个hostname：</p>
+<p>我一番搜索之后发现其实有三个主机名，它们分别是：</p>
 <h3 id="hostname-主机名">HostName 主机名</h3>
-<p>我已不太清楚这个有什么用。总之，这个就是在shell
-prompt里面出现的。其不能在macos里的设置里面查看或调整，默认应该处于未设置的状态。可以通过<code>hostname</code>查看。</p>
+<p>我不太清楚其作用。总之，这个主机名就是出现在 shell prompt
+里的那个。其不能在 macOS
+设置里查看或调整，默认应该处于未设置的状态。这个主机名可以通过
+<code>hostname</code> 命令查看。</p>
 <h3 id="localhosthame-本地主机名">LocalHostHame 本地主机名</h3>
 <figure>
 <img src="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png" srcset="/img/loading.gif" lazyload
 alt="macOS里hostname的理解-1" />
 <figcaption aria-hidden="true">macOS里hostname的理解-1</figcaption>
 </figure>
-<p>这个就是我们电脑的本地主机名，可以在设置里面更改。一般是xxxxx.local这样的样式。对其进行解析就可以得到我们电脑的ip地址。比如我们在本机上ping一下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">appe@CialloAPPE ~&gt; ping CialloAppe.local<br>PING cialloappe.local (127.0.0.1): 56 data bytes<br>64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.091 ms<br>64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.232 ms<br></code></pre></td></tr></table></figure>
-<p>拿到了本机的地址。</p>
+<p>本地主机名可以在 macOS 设置里更改（通用 &gt;
+分享），一般是xxx.local这样的样式。这个主机名一般会被发送给路由器，是电脑的网络名称，同局域网内其它设备一般可通过此主机名（域名）访问到我们的电脑。对这个主机名（域名）进行解析就可以得到我们电脑在此局域网中的IP地址。</p>
+<p>比如我们在本机上ping一下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">appe@CialloAPPE ~&gt; ping CialloAppe.local<br>PING cialloappe.local (127.0.0.1): 56 data bytes<br>64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.091 ms<br></code></pre></td></tr></table></figure>
+<p>由于在本机进行DNS，拿到了本机的地址（127.0.0.1）。</p>
 <h3 id="computername-电脑名">ComputerName 电脑名</h3>
 <figure>
 <img src="https://s2.loli.net/2023/11/23/B79H6FVZEfLXKQG.png" srcset="/img/loading.gif" lazyload
 alt="macOS里hostname的理解-2" />
 <figcaption aria-hidden="true">macOS里hostname的理解-2</figcaption>
 </figure>
-<p>也可以在设置里面更改，如名字，电脑名字。这个名字是拿来给别人看的，目的是辨识。比如隔空投送的时候别人看到的就是你的电脑的这个名字。</p>
+<p>电脑名可以在设置更改（通用 &gt;
+关于）。正如其名，电脑名，是拿来给人看的，目的是辨识。比如隔空投送，别人看到的就是你的电脑名。</p>
 <h2 id="如何更改---scutil">如何更改 - scutil</h2>
-<p>可以使用macos自带工具scutil来更改这三个主机名。更详细的可以去看<code>man scutil</code>。有两个选项--get和--set。</p>
-<p>查看这几个主机名：</p>
+<p>可以使用 macOS 自带工具 scutil
+来更改这三个主机名。想知道更详细的可以去看 <code>man scutil</code>
+。</p>
+<p>简单来说，这个命令有两个选项 --get 和 --set 。</p>
+<p>查看这三种主机名：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">scutil --get HostName # 获取主机名<br>scutil --get LocalHostName # 获取本地主机名<br>scutil --get ComputerName # 获取电脑名<br></code></pre></td></tr></table></figure>
-<p>主机名无法在设置里更改，所以必须用命令：</p>
+<p>第一个，主机名无法在设置里更改，所以必须用命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scutil --set HostName YOUR_HOSTNAME<br></code></pre></td></tr></table></figure>
-<p>另外两个可以在设置里面改。</p>
+<p>另外后两种主机名两个可以直接在 macOS 设置里面改。</p>
 
                 
               </div>
@@ -531,34 +528,9 @@ alt="macOS里hostname的理解-2" />
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a><br> 托管在<a href="https://vercel.com" target="_blank" rel="nofollow noopener"><span>Vercel</span></a> <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/"><i class="iconfont icon-copyright"><span>CC BY-SA 4.0</span></a> 
     </div>
   
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        
-        <span id="leancloud-site-pv"></span>
-        Visits
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        
-        <span id="leancloud-site-uv"></span>
-        Visitors
-      </span>
-    
-    
-
-  
-</div>
-
   
   
   
@@ -688,8 +660,6 @@ alt="macOS里hostname的理解-2" />
 
 
   <script>Fluid.plugins.imageCaption();</script>
-
-  <script defer src="/js/leancloud.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
