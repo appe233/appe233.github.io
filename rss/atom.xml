@@ -3,7 +3,7 @@
   <title>APPE233</title>
   <icon>https://s2.loli.net/2023/09/17/vjIV1bxdX7lqeOk.webp</icon>
   <subtitle>Blog</subtitle>
-  <link href="https://www.appe.moe/atom.xml" rel="self"/>
+  <link href="https://www.appe.moe/rss/atom.xml" rel="self"/>
   
   <link href="https://www.appe.moe/"/>
   <updated>2024-06-25T06:19:26.153Z</updated>
