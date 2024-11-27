@@ -41,29 +41,6 @@
   </entry>
   
   <entry>
-    <title>谈谈Surge在境外的使用</title>
-    <link href="https://www.appe.moe/2023/11/03/%E8%B0%88%E8%B0%88Surge%E5%9C%A8%E5%A2%83%E5%A4%96%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://www.appe.moe/2023/11/03/%E8%B0%88%E8%B0%88Surge%E5%9C%A8%E5%A2%83%E5%A4%96%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
-    <published>2023-11-03T11:24:47.000Z</published>
-    <updated>2023-12-19T14:37:31.637Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="谈谈surge在境外的使用">谈谈Surge在境外的使用</h1><h2 id="写在最前的话">写在最前的话</h2><blockquote><p>Advanced Network Toolbox for Mac &amp; iOS</p></blockquote><p>最开始购买的时候在境内。现在人住境外了，但是还是想让Surge在发挥点余热，毕竟不只有有链接代理的能力，还有很多其它的用途。（才不是因为太贵了所以在用的）<del>我合租的</del></p><h2 id="杂七杂八的用途">杂七杂八的用途</h2><h3 id="代理一些仍然有地区限制的服务">代理一些仍然有地区限制的服务</h3><p>很多服务仍然是有地区限制的。ChatGPT在我这里仍然是被限制的，所以还是需要代理。因为不存在封锁得问题，这一点的要求是没有在国内那么高了。我之前是傻乎乎的跑去<ahref="https://www.ip2world.com">IP2Wolrd</a>买了一个住宅IP，觉得这样很安全不会被封,现在想来真是没必要且费钱。目前的情况我是随便找了一点平价小机场然后用美国节点。</p><h3 id="去广告">去广告</h3><p>这个没什么好说的，规则类的工具基本都可以实现，Surge还有比较完善的Reject策略。</p><h3 id="重写">重写</h3><p>重写可能是最有用的了，我现在使用重写请求头的方式解除网易云音乐的海外侨胞地区限制，直接节约一个代理的成本（流量）。解析https://music.163.com后增加一个X-Real-IP的请求头。里面随便填一个国内的ip就可以了。</p><h3 id="翻回去">翻回去？</h3><p>也不是所有服务都可以重写解决所以还是需要代理。<del>所以之前节省的又没了</del>实际上应该是可以用wireguard之类的vpn协议，不过我就选了ss。</p><h3 id="dns">DNS</h3><p>Surge支持了并发。国内的一些服务外面没有很好的cdn，所以这时候再添几个国内的dns会快一些。</p>]]></content>
-    
-    
-    <summary type="html">充分发挥Surge的作用</summary>
-    
-    
-    
-    
-    <category term="mac" scheme="https://www.appe.moe/tags/mac/"/>
-    
-    <category term="Network" scheme="https://www.appe.moe/tags/Network/"/>
-    
-    <category term="Surge" scheme="https://www.appe.moe/tags/Surge/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Mac安装软件的已损坏，无法打开。您应该将它移到废纸篓问题解决</title>
     <link href="https://www.appe.moe/2023/08/04/Mac%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
     <id>https://www.appe.moe/2023/08/04/Mac%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</id>
