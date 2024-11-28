@@ -21,25 +21,24 @@
   <meta name="author" content="APPE">
   <meta name="keywords" content="tech,math,mac,minecraft,network">
   
-    <meta name="description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
+    <meta name="description" content="MCJE 开服！如何配置 Fabric 服务端本体">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macOS里hostname的理解">
-<meta property="og:url" content="https://www.appe.moe/2023/11/23/macOS%E9%87%8Chostname%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
+<meta property="og:title" content="Minecraft Java 版开服日记【1】">
+<meta property="og:url" content="https://www.appe.moe/2024/11/28/MinecraftJava%E7%89%88%E5%BC%80%E6%9C%8D%E6%97%A5%E8%AE%B0%E3%80%901%E3%80%91/index.html">
 <meta property="og:site_name" content="APPE Domain">
-<meta property="og:description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
+<meta property="og:description" content="MCJE 开服！如何配置 Fabric 服务端本体">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png">
-<meta property="og:image" content="https://s2.loli.net/2023/11/23/B79H6FVZEfLXKQG.png">
-<meta property="article:published_time" content="2023-11-23T03:07:46.000Z">
-<meta property="article:modified_time" content="2024-06-25T06:19:26.153Z">
+<meta property="og:image" content="https://s2.loli.net/2024/11/28/p6A5LwvRKfmnDhC.png">
+<meta property="article:published_time" content="2024-11-28T13:56:28.000Z">
+<meta property="article:modified_time" content="2024-11-28T13:56:28.792Z">
 <meta property="article:author" content="APPE">
-<meta property="article:tag" content="mac">
+<meta property="article:tag" content="Minecraft">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/28/p6A5LwvRKfmnDhC.png">
   
   
   
-  <title>macOS里hostname的理解 - APPE Domain</title>
+  <title>Minecraft Java 版开服日记【1】 - APPE Domain</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -210,7 +209,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">macOS里hostname的理解</span>
+            <span id="subtitle">Minecraft Java 版开服日记【1】</span>
           
         </div>
 
@@ -221,8 +220,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-23 11:07" pubdate>
-          2023年11月23日 上午
+        <time datetime="2024-11-28 21:56" pubdate>
+          2024年11月28日 晚上
         </time>
       </span>
     
@@ -265,12 +264,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">macOS里hostname的理解</h1>
+            <h1 id="seo-header">Minecraft Java 版开服日记【1】</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年6月25日 下午
+                    本文最后更新于 2024年11月28日 晚上
                   
                 
               </p>
@@ -278,45 +277,115 @@
             
               <div class="markdown-body">
                 
-                <h2 id="一切的起因">一切的起因</h2>
-<p>每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">appe@a6c6xxx ~&gt;<br></code></pre></td></tr></table></figure>
-<h2 id="各个hostname的含义">各个hostname的含义</h2>
-<p>我一番搜索之后发现其实有三个主机名，它们分别是：</p>
-<h3 id="hostname-主机名">HostName 主机名</h3>
-<p>我不太清楚其作用。总之，这个主机名就是出现在 shell prompt
-里的那个。其不能在 macOS
-设置里查看或调整，默认应该处于未设置的状态。这个主机名可以通过
-<code>hostname</code> 命令查看。</p>
-<h3 id="localhosthame-本地主机名">LocalHostHame 本地主机名</h3>
+                <h2 id="写在前面">写在前面</h2>
+<p>大家好，这是一篇记录我开MCJE服务器的文章。第一次开服肯定个方面都有不尽完美之处，这也就说不上是指南了。另外我都不知道为什么，这篇文章写了好久。其实网上相关的教程是很多的。</p>
+<p>开服之前我们需要考虑一下定位。游戏版本选什么，加载器选什么，玩法是什么，这些都是需要考虑的内容。这一次我想开个休闲向的生电服，服务端选Fabric，版本选
+JE 1.20.1 正式版。</p>
+<div class="note note-info">
+            <p>我们开服务器最容易遇到，也可以说是必然会遇到的就是可持续性问题，即玩家的活跃度问题。刚开始的时候可能有很多人在服务器里面玩，拿了鞘翅之后可能会少一些人，一些机器做好了又少一些。因此我十分建议找一些熟悉的朋友，已经在一起玩过的，来支持你的服务器。</p>
+          </div>
+<h2 id="服务器配置">服务器配置</h2>
+<p>我不大懂这一方面，但是有一点需要注意，就是服务器带宽。这个是很重要的，尤其是当人多起来之后。</p>
+<p>这是我机子的配置</p>
+<ul>
+<li><p>CPU：13500ES</p></li>
+<li><p>内存：64G</p></li>
+<li><p>硬盘：1TB m.2</p></li>
+</ul>
+<h2 id="配置服务端">配置服务端</h2>
+<h3 id="服务端本体">服务端本体</h3>
+<h4 id="安装-java">安装 Java</h4>
+<p>MCJE 当然是用 Java写的，我们需要安装 Java
+来运行服务器。根据我看过一个推荐，使用阿里云的 <a
+target="_blank" rel="noopener" href="https://dragonwell-jdk.io/#/index">Dragonwell</a>
+发行版可以优化服务器 MSPT
+。不过用别的发行版应该也不会有什么区别吧。下载下来的是一个压缩包，我们将解压后得到的文件夹放在一个合适的位置（比如放进<code>/home/YOUR_NAME/java</code>这样的地方）。</p>
+<p>就这样肯定是不行的，我们得把可执行文件添加进我们的 PATH
+。编辑当前用户的 shell 配置。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">export PATH=&quot;$HOME/java/dragonwell-xxx/bin:$PATH&quot;<br>export JAVA_HOME=&quot;$HOME/java/dragonwell-xxx&quot;<br>source ~/.profile # 我使用 Bash<br></code></pre></td></tr></table></figure>
+<div class="note note-info">
+            <p>理论上来说这是在声明一个环境变量，所以应该要放在一般带有 profile字段的配置内。</p><p>对于 bash 这是 <code>.profile</code></p><p>对于 zsh 这是 <code>.zprofile</code></p>
+          </div>
+<p>接下来测试一下安装是否成功，我们现在输入<code>java --version</code>。如果成功则可以看到相关的版本信息。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java --version<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">输出</span><br>openjdk 17.0.9 2023-10-17<br>OpenJDK Runtime Environment (Alibaba Dragonwell Standard Edition)-17.0.9.0.10+9-GA (build 17.0.9+9)<br>OpenJDK 64-Bit Server VM (Alibaba Dragonwell Standard Edition)-17.0.9.0.10+9-GA (build 17.0.9+9, mixed mode, sharing)<br></code></pre></td></tr></table></figure>
+<h4 id="下载-fabric">下载 Fabric</h4>
+<p>前往 <a target="_blank" rel="noopener" href="https://fabricmc.net">Fabric</a>官网里的<a
+target="_blank" rel="noopener" href="https://fabricmc.net/use/server/"><ruby>服务器下载<rt>Download
+Minecraft Server Launcher</rt></ruby></a>页面。在这里我们可以选择
+Minecraft 的版本， Fabric
+的版本等。我们选择好我们要的版本下载下来，得到一个 jar 文件。</p>
 <figure>
-<img src="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png" srcset="/img/loading.gif" lazyload
-alt="macOS里hostname的理解-1" />
-<figcaption aria-hidden="true">macOS里hostname的理解-1</figcaption>
+<img src="https://s2.loli.net/2024/11/28/p6A5LwvRKfmnDhC.png" srcset="/img/loading.gif" lazyload
+alt="Screenshot 2024-11-28 at 19.44.32" />
+<figcaption aria-hidden="true">Screenshot 2024-11-28 at
+19.44.32</figcaption>
 </figure>
-<p>本地主机名可以在 macOS 设置里更改（通用 &gt;
-分享），一般是xxx.local这样的样式。这个主机名一般会被发送给路由器，是电脑的网络名称，同局域网内其它设备一般可通过此主机名（域名）访问到我们的电脑。对这个主机名（域名）进行解析就可以得到我们电脑在此局域网中的IP地址。</p>
-<p>比如我们在本机上ping一下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">appe@CialloAPPE ~&gt; ping CialloAppe.local<br>PING cialloappe.local (127.0.0.1): 56 data bytes<br>64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.091 ms<br></code></pre></td></tr></table></figure>
-<p>由于在本机进行DNS，拿到了本机的地址（127.0.0.1）。</p>
-<h3 id="computername-电脑名">ComputerName 电脑名</h3>
-<figure>
-<img src="https://s2.loli.net/2023/11/23/B79H6FVZEfLXKQG.png" srcset="/img/loading.gif" lazyload
-alt="macOS里hostname的理解-2" />
-<figcaption aria-hidden="true">macOS里hostname的理解-2</figcaption>
-</figure>
-<p>电脑名可以在设置更改（通用 &gt;
-关于）。正如其名，电脑名，是拿来给人看的，目的是辨识。比如隔空投送，别人看到的就是你的电脑名。</p>
-<h2 id="如何更改---scutil">如何更改 - scutil</h2>
-<p>可以使用 macOS 自带工具 scutil
-来更改这三个主机名。想知道更详细的可以去看 <code>man scutil</code>
-。</p>
-<p>简单来说，这个命令有两个选项 --get 和 --set 。</p>
-<p>查看这三种主机名：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">scutil --get HostName # 获取主机名<br>scutil --get LocalHostName # 获取本地主机名<br>scutil --get ComputerName # 获取电脑名<br></code></pre></td></tr></table></figure>
-<p>第一个，主机名无法在设置里更改，所以必须用命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scutil --set HostName YOUR_HOSTNAME<br></code></pre></td></tr></table></figure>
-<p>另外后两种主机名两个可以直接在 macOS 设置里面改。</p>
+<p>我们可以新建一个名为 server 的文件夹用于存放服务器文件。为什么要叫
+server 呢，这个我们后面将会解释。将下载的 jar 文件放入其内，然后我们用
+fabric 提供的命令启动服务器。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -Xmx2G -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>[!NOTE]</p>
+<p>根据选择的版本，命令可能会有变化，请使用网站上给出的。</p>
+</blockquote>
+<p>这是我们第一次运行，然而看它跑了几行代码就失败了，同时目录里多出一些文件。不用担心这是正常，因为我们没有同意
+Mojang 的 <a target="_blank" rel="noopener" href="https://www.minecraft.net/zh-hans/terms/r1">Minecraft
+EULA</a> 。如果我们要开服，则必须同意EULA。</p>
+<p>查看一下 eula.txt 文件</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">#By changing the setting below to TRUE you are indicating your agreement to our EULA (https://aka.ms/MinecraftEULA).</span><br><span class="hljs-comment">#Mon Nov 18 20:37:05 CST 2024</span><br><span class="hljs-attr">eula</span>=<span class="hljs-literal">false</span> <span class="hljs-comment"># 改成 true 以同意 EULA</span><br></code></pre></td></tr></table></figure>
+<p>我们将这里的 false 改成 true ，就代表我们同意了。</p>
+<p>我们再一次运行前面启动命令，这时候如果没有别的问题，服务器就可以启动了。</p>
+<p>实际上我们并不想每次都输入一长串命令，我们的服务器也不可能只用 2G
+内存。所以我们要编写自己的启动命令。我们可以创建一个 shell
+脚本，将编写好的启动命令写在里面。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">touch start.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>java -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=<span class="hljs-literal">true</span> -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
+<div class="note note-warning">
+            <p>命令完全基于服务器的配置。<code>-Xmx10G</code>代表的是虚拟机占用的最大内存为10G，<code>-Xms10G</code>代表的是最小占用内存为10G。最后的效果就是服务端进程持续占用10G内存。这一块我基本一窍不通了，所以是从这个网站抄的。如果有更好选项不要管我的命令。<ahref="https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/"class="uri">https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/</a></p>
+          </div>
+<h4 id="编辑-server.properties">编辑 server.properties</h4>
+<p>这就相当于是一个服务端自己的配置文件。我们需要编辑几个重要的项目。</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">level-seed</span>= <span class="hljs-number">11</span> <span class="hljs-comment"># 这一项是世界的种子，如果你是新生成世界的话，就在这里设置</span><br><span class="hljs-attr">enable-rcon</span>=<span class="hljs-literal">true</span> <span class="hljs-comment"># 打开 rcon ，后面的 MCDR 要用</span><br><span class="hljs-attr">rcon.password</span>= euhfeHHHHU <span class="hljs-comment"># 设置 rcon 的密码</span><br><span class="hljs-attr">rcon.port</span>=<span class="hljs-number">25575</span> <span class="hljs-comment"># rcon 的端口</span><br><span class="hljs-attr">enable-command-block</span>= <span class="hljs-literal">false</span> <span class="hljs-comment"># false 则是禁用命令方块</span><br><span class="hljs-attr">gamemode</span>=survival <span class="hljs-comment"># 生存模式</span><br><span class="hljs-attr">motd</span>=Welcome！ <span class="hljs-comment"># 服务器的欢迎语</span><br><span class="hljs-attr">pvp</span>=<span class="hljs-literal">true</span> <span class="hljs-comment"># 打开 pvp</span><br><span class="hljs-attr">difficulty</span>=hard <span class="hljs-comment"># 困难难度</span><br><span class="hljs-attr">max-player</span>=<span class="hljs-number">30</span> <span class="hljs-comment"># 最多允许加入的玩家</span><br><span class="hljs-attr">online-mode</span>=<span class="hljs-literal">true</span> <span class="hljs-comment"># 开启正版限制</span><br><span class="hljs-attr">view-distance</span>=<span class="hljs-number">10</span> <span class="hljs-comment"># 这个是服务器的视距</span><br><span class="hljs-attr">simulation-distance</span>=<span class="hljs-number">10</span> <span class="hljs-comment"># 这个是服务器的模拟距离，也就是强加载半径</span><br><span class="hljs-attr">server-port</span>=<span class="hljs-number">25565</span> <span class="hljs-comment"># 服务器端口</span><br><span class="hljs-attr">spawn-protection</span>=<span class="hljs-number">0</span> <span class="hljs-comment"># 如果你是生电服务器的话，建议关掉，这是出生点保护</span><br></code></pre></td></tr></table></figure>
+<p>至此我们就基本完成了对 MC 服务端的配置。</p>
+<h4 id="模组">模组</h4>
+<p>我们一般也会想要安装一些模组吧。 Fabric 的模组都很难做到像 Forge 、
+NeoForge
+那样大型。不过生电服务器就不用担心这个问题了。我们来安装一些必备的模组。</p>
+<div class="note note-info">
+            <p>在以前 curse forge是常用的下载平台，这对我们下载模组到服务器其实不太友好，因为 curseforge并不提供直链。现在 <ahref="https://modrinth.com">modrinth</a>是一个更好的选择了！它不仅下载起来更方便舒适，对内容开发者的待遇也更好。我们应当多使用modrinth ！</p>
+          </div>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/fabric-api">Fabric api</a>
+这个是必要的</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/lithium">Lithium</a>
+不改变游戏机制的优化模组，没有不加的理由</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/appleskin">AppleSkin</a>
+老牌食物信息显示模组</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/no-chat-reports">No Chat
+Reports</a> 防止聊天信息举报</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/lazydfu">LazyDFU</a>
+优化启动</p></li>
+<li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/carpet">Carpet</a>
+嘛，地毯模组，可以算作是必备的，可以发送 TPS 信息，还有各种功能</p>
+<p>还可以加别的，就看喜好啦～</p>
+<h3 id="安装与配置-mcdr">安装与配置 MCDR</h3>
+<p>什么是 MCDR ？简单来说，它其实没什么神秘的，它监控着 Minecraft
+服务端的输出，然后针对性做出反应。我们所常见的 <strong>QBM</strong> 和
+<strong>!!here</strong> 都是 MCDR 的插件。 MCDR
+的官方文档写的超详细。建议直接访问查看呢。</p>
+<p><a target="_blank" rel="noopener" href="https://mcdreforged.com/zh-CN"
+class="uri">https://mcdreforged.com/zh-CN</a></p>
+<p>我在这里只解释一下我安装 MCDR 的时候遇到的一个问题。</p>
+<p>我的系统是 debian 。我用了系统包管理器安装的 Python
+。然而在我当时尝试用
+<code>pip</code>安装包时给我报了一个错。这是因为一些很蠢的原因，
+debian不允许直接把包安装到现在的系统 Python 环境中。所以要做的事是，为
+MCDR 建立一个虚拟 Python
+环境，把这些包安装在这个虚拟环境，用这个虚拟环境启动 MCDR
+。（或者也可以直接把这个虚拟环境当作系统环境来用，把激活虚拟环境的脚本加入到
+shell 的配置文件里面。）</p></li>
+</ul>
 
                 
               </div>
@@ -329,7 +398,7 @@ alt="macOS里hostname的理解-2" />
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/mac/" class="print-no-link">#mac</a>
+        <a href="/tags/Minecraft/" class="print-no-link">#Minecraft</a>
       
     </div>
   
@@ -341,8 +410,8 @@ alt="macOS里hostname的理解-2" />
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>macOS里hostname的理解</div>
-      <div>https://www.appe.moe/2023/11/23/macOS里hostname的理解/</div>
+      <div>Minecraft Java 版开服日记【1】</div>
+      <div>https://www.appe.moe/2024/11/28/MinecraftJava版开服日记【1】/</div>
     </div>
     <div class="license-meta">
       
@@ -354,7 +423,7 @@ alt="macOS里hostname的理解-2" />
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月23日</div>
+          <div>2024年11月28日</div>
         </div>
       
       
@@ -392,18 +461,12 @@ alt="macOS里hostname的理解-2" />
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/11/28/MinecraftJava%E7%89%88%E5%BC%80%E6%9C%8D%E6%97%A5%E8%AE%B0%E3%80%901%E3%80%91/" title="Minecraft Java 版开服日记【1】">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Minecraft Java 版开服日记【1】</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/04/Mac%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E3%80%82%E6%82%A8%E5%BA%94%E8%AF%A5%E5%B0%86%E5%AE%83%E7%A7%BB%E5%88%B0%E5%BA%9F%E7%BA%B8%E7%AF%93%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" title="Mac安装软件的已损坏，无法打开。您应该将它移到废纸篓问题解决">
-                        <span class="hidden-mobile">Mac安装软件的已损坏，无法打开。您应该将它移到废纸篓问题解决</span>
+                      <a href="/2023/11/23/macOS%E9%87%8Chostname%E7%9A%84%E7%90%86%E8%A7%A3/" title="macOS里hostname的理解">
+                        <span class="hidden-mobile">macOS里hostname的理解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
