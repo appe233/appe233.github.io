@@ -46,8 +46,6 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://prismjs.catppuccin.com/frappe.css/plugins/line-numbers/prism-line-numbers.min.css" />
-
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
@@ -294,51 +292,29 @@ target="_blank" rel="noopener" href="https://archlinux.org/packages/extra/x86_64
 </blockquote>
 <h3 id="调整设置">调整设置</h3>
 <p>首先查看当前用户是否在<strong>input</strong>这个用户组里。执行<code>groups | grep "input"</code>显示用户所在组，不在组里没权限改设置。不在组里就加一下。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> input Your_username<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> usermod -aG input Your_username<br></code></pre></td></tr></table></figure>
 <p>另种改设置的方法： 1. 用<code>xinput</code> 2. 编辑配置文件</p>
 <h4 id="xinput"><code>xinput</code></h4>
 <p>可以阅读ArchLinux wiki上有关<a
 target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Libinput#使用_xinput">xinput</a>的页面了解。</p>
 <p>查看可用设备</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xinput list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xinput list<br></code></pre></td></tr></table></figure>
 <p>查看设备的设置</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xinput list-props your_device<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xinput list-props your_device<br></code></pre></td></tr></table></figure>
 <blockquote>
 <p>这里可以用设备id或者设备名</p>
 </blockquote>
 <p>调节设置</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">xinput set-prop yout_device property_you_want your_values<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">xinput set-prop yout_device property_you_want your_values<br></code></pre></td></tr></table></figure>
 <h4 id="配置文件">配置文件</h4>
 <p>详见<a
 target="_blank" rel="noopener" href="https://wiki.archlinuxcn.org/wiki/Libinput#使用_Xorg_配置文件">ArchLinux
 wiki</a>。</p>
 <p>自定义配置文件应该是/etc/X11/xorg.conf.d/30-touchpad.conf。要添加触控板的相关设置，首先要找到配置文件中和触控板有关部门的项。我这里是这样的</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">...
-Section "InputClass"
-        Identifier "libinput touchpad catchall"
-        MatchIsTouchpad "on"
-        MatchDevicePath "/dev/input/event*"
-        Driver "libinput"
-EndSection
-...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">...<br>Section &quot;InputClass&quot;<br>        Identifier &quot;libinput touchpad catchall&quot;<br>        MatchIsTouchpad &quot;on&quot;<br>        MatchDevicePath &quot;/dev/input/event*&quot;<br>        Driver &quot;libinput&quot;<br>EndSection<br>...<br></code></pre></td></tr></table></figure>
 <p>在下面添加配置，具体的配置项可以看<a
 target="_blank" rel="noopener" href="https://www.mankier.com/4/libinput#Synopsis">这里</a>。以下是我习惯的配置</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-txt" data-language="txt"><code class="language-txt">...
-Section "InputClass"
-        Identifier "libinput touchpad catchall"
-        MatchIsTouchpad "on"
-        MatchDevicePath "/dev/input/event*"
-        Driver "libinput"
-		Option "AccelProfile" "0.5"
-		Option "DisableWhileTyping" "true"
-		Option "NaturalScrolling" "true"
-		Option "ScrollMethod" "twofinger"
-		Option "Tapping" "true"
-		Option "TappingButtonMap" "1/2/3"
-		Option "TappingDrag" "true"
-
-EndSection
-...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs txt">...<br>Section &quot;InputClass&quot;<br>        Identifier &quot;libinput touchpad catchall&quot;<br>        MatchIsTouchpad &quot;on&quot;<br>        MatchDevicePath &quot;/dev/input/event*&quot;<br>        Driver &quot;libinput&quot;<br>		Option &quot;AccelProfile&quot; &quot;0.5&quot;<br>		Option &quot;DisableWhileTyping&quot; &quot;true&quot;<br>		Option &quot;NaturalScrolling&quot; &quot;true&quot;<br>		Option &quot;ScrollMethod&quot; &quot;twofinger&quot;<br>		Option &quot;Tapping&quot; &quot;true&quot;<br>		Option &quot;TappingButtonMap&quot; &quot;1/2/3&quot;<br>		Option &quot;TappingDrag&quot; &quot;true&quot;<br><br>EndSection<br>...<br></code></pre></td></tr></table></figure>
 <p>更改完之后保存重启，发现触控板设置正常。</p>
 
                 
@@ -651,8 +627,6 @@ EndSection
   });
 </script>
 
-
-  <script  src="https://prismjs.catppuccin.com/frappe.css/plugins/line-numbers/prism-line-numbers.min.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 

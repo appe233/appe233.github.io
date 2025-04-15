@@ -21,12 +21,12 @@
   <meta name="author" content="APPE">
   <meta name="keywords" content="tech,math,mac,minecraft,network">
   
-    <meta name="description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 mac">
+    <meta name="description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS里hostname的理解">
 <meta property="og:url" content="https://www.appe.moe/2023/11/23/macOS%E9%87%8Chostname%E7%9A%84%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="APPE Domain">
-<meta property="og:description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 mac">
+<meta property="og:description" content="一切的起因 每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。 1appe@a6c6xxx ~&gt; 各个hostname的含义 我一番搜索之后发现其实有三个主机名，它们分别是： HostName 主机名 我不太清楚其作用。总之，这个主机名就是出现在 shell prompt 里的那个。其不能在 ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/11/23/MuUHOQ35w27LDPp.png">
 <meta property="og:image" content="https://s2.loli.net/2023/11/23/B79H6FVZEfLXKQG.png">
@@ -48,8 +48,6 @@
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://prismjs.catppuccin.com/frappe.css/plugins/line-numbers/prism-line-numbers.min.css" />
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
@@ -282,7 +280,7 @@
                 
                 <h2 id="一切的起因">一切的起因</h2>
 <p>每次打开打开终端，主机名都是一坨乱码。之前没管，现在想弄清楚到底是怎么回事。我难道没有设置主机名吗？还是说这里不是我所设置的主机名，而是另有其物。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">appe@a6c6xxx ~&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs zsh">appe@a6c6xxx ~&gt;<br></code></pre></td></tr></table></figure>
 <h2 id="各个hostname的含义">各个hostname的含义</h2>
 <p>我一番搜索之后发现其实有三个主机名，它们分别是：</p>
 <h3 id="hostname-主机名">HostName 主机名</h3>
@@ -299,9 +297,7 @@ alt="macOS里hostname的理解-1" />
 <p>本地主机名可以在 macOS 设置里更改（通用 &gt;
 分享），一般是xxx.local这样的样式。这个主机名一般会被发送给路由器，是电脑的网络名称，同局域网内其它设备一般可通过此主机名（域名）访问到我们的电脑。对这个主机名（域名）进行解析就可以得到我们电脑在此局域网中的IP地址。</p>
 <p>比如我们在本机上ping一下：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">appe@CialloAPPE ~&gt; ping CialloAppe.local
-PING cialloappe.local (127.0.0.1): 56 data bytes
-64 bytes from 127.0.0.1: icmp_seq&#x3D;0 ttl&#x3D;64 time&#x3D;0.091 ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs zsh">appe@CialloAPPE ~&gt; ping CialloAppe.local<br>PING cialloappe.local (127.0.0.1): 56 data bytes<br>64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.091 ms<br></code></pre></td></tr></table></figure>
 <p>由于在本机进行DNS，拿到了本机的地址（127.0.0.1）。</p>
 <h3 id="computername-电脑名">ComputerName 电脑名</h3>
 <figure>
@@ -317,11 +313,9 @@ alt="macOS里hostname的理解-2" />
 。</p>
 <p>简单来说，这个命令有两个选项 --get 和 --set 。</p>
 <p>查看这三种主机名：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">scutil --get HostName # 获取主机名
-scutil --get LocalHostName # 获取本地主机名
-scutil --get ComputerName # 获取电脑名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs zsh">scutil --get HostName # 获取主机名<br>scutil --get LocalHostName # 获取本地主机名<br>scutil --get ComputerName # 获取电脑名<br></code></pre></td></tr></table></figure>
 <p>第一个，主机名无法在设置里更改，所以必须用命令：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-zsh" data-language="zsh"><code class="language-zsh">scutil --set HostName YOUR_HOSTNAME<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs zsh">scutil --set HostName YOUR_HOSTNAME<br></code></pre></td></tr></table></figure>
 <p>另外后两种主机名两个可以直接在 macOS 设置里面改。</p>
 
                 
@@ -634,8 +628,6 @@ scutil --get ComputerName # 获取电脑名<span aria-hidden="true" class="line-
   });
 </script>
 
-
-  <script  src="https://prismjs.catppuccin.com/frappe.css/plugins/line-numbers/prism-line-numbers.min.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
