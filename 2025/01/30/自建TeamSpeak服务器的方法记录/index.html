@@ -51,6 +51,8 @@
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
@@ -310,7 +312,7 @@ target="_blank" rel="noopener" href="https://www.mumble.info">munble</a>
 <div class="note note-info">
             <p>理论上来说，如果你用自己的普通用户账户也是没问题的，新建一个用户安全性更高。</p>
           </div>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">adduser </span>--<span class="hljs-keyword">disabled-login </span>ts3<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">adduser --disabled-login ts3</code></pre></div></figure>
 <p>名字叫什么就看喜好了。</p>
 <div class="note note-secondary">
             <p><code>adduser</code>是一个傻瓜式脚本，它会交互式地问你如何设置账户每项。大部分都是可以留空的！当然也可以用<code>useradd</code>，提前再新建一个用户组就可以了。</p>
@@ -333,30 +335,50 @@ alt="我选择图片中的LINUX SERVER 64-BIT" />
 64-BIT</figcaption>
 </figure>
 <p>首先进到 ts3 的home 目录。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/ts3<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">cd &#x2F;home&#x2F;ts3</code></pre></div></figure>
 <p>点旁边那个复制按钮，然后到服务器下载。</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">wget</span> https://files.teamspeak-services.com/releases/server/<span class="hljs-number">3</span>.<span class="hljs-number">13</span>.<span class="hljs-number">7</span>/teamspeak3-server_linux_amd64-<span class="hljs-number">3</span>.<span class="hljs-number">13</span>.<span class="hljs-number">7</span>.tar.bz2<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">wget https:&#x2F;&#x2F;files.teamspeak-services.com&#x2F;releases&#x2F;server&#x2F;3.13.7&#x2F;teamspeak3-server_linux_amd64-3.13.7.tar.bz2</code></pre></div></figure>
 <p>解压</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">tar</span> -xvf teamspeak3-server_linux_amd64-<span class="hljs-number">3</span>.<span class="hljs-number">13</span>.<span class="hljs-number">7</span>.tar.bz2<br><span class="hljs-attribute">cd</span> teamspeak3-server_linux_amd64<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">tar -xvf teamspeak3-server_linux_amd64-3.13.7.tar.bz2
+cd teamspeak3-server_linux_amd64</code></pre></div></figure>
 <h2 id="运行">运行</h2>
 <h3 id="同意-teamspeak-条款">同意 TeamSpeak 条款</h3>
 <p>然而我们还不能直接运行 TeamSpeak ，因为我们要先同意 TeamSpeak
 的条款。运行这个命令创建同意文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> .ts3server_license_accepted<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">touch .ts3server_license_accepted</code></pre></div></figure>
 <p>接下来，如果你也是用 root
 完成的这些操作，我们需要更改一下这些文件的所属权，不然ts3这个用户是没法运行
 TeamSpeak 的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /home/ts3<br><span class="hljs-built_in">chown</span> -R ts3:ts3 teamspeak3-server_linux_amd64<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">cd &#x2F;home&#x2F;ts3
+chown -R ts3:ts3 teamspeak3-server_linux_amd64</code></pre></div></figure>
 <h3 id="用-systemd-管理">用 Systemd 管理</h3>
 <p>然后我们就可以启动了。可以编写一个 service 文件，方便我们使用 systemd
 管理。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">vim <span class="hljs-regexp">/lib/</span>systemd<span class="hljs-regexp">/system/</span>teamspeak.service<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;teamspeak.service</code></pre></div></figure>
 <p>以下是内容：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=TeamSpeak <span class="hljs-number">3</span> Server<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">WorkingDirectory</span>=/home/ts3/teamspeak3-server_linux_amd64<br><span class="hljs-attr">User</span>=ts3<br><span class="hljs-attr">Group</span>=ts3<br><span class="hljs-attr">Type</span>=forking<br><span class="hljs-attr">ExecStart</span>=/home/ts3/teamspeak3-server_linux_amd64/ts3server_startscript.sh start inifile=ts3server.ini<br><span class="hljs-attr">ExecStop</span>=/home/ts3/teamspeak3-server_linux_amd64/ts3server_startscript.sh stop<br><span class="hljs-attr">PIDFile</span>=/home/ts3/teamspeak3-server_linux_amd64/ts3server.pid<br><span class="hljs-attr">RestartSec</span>=<span class="hljs-number">15</span><br><span class="hljs-attr">Restart</span>=always<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">[Unit]
+Description&#x3D;TeamSpeak 3 Server
+After&#x3D;network.target
+
+[Service]
+WorkingDirectory&#x3D;&#x2F;home&#x2F;ts3&#x2F;teamspeak3-server_linux_amd64
+User&#x3D;ts3
+Group&#x3D;ts3
+Type&#x3D;forking
+ExecStart&#x3D;&#x2F;home&#x2F;ts3&#x2F;teamspeak3-server_linux_amd64&#x2F;ts3server_startscript.sh start inifile&#x3D;ts3server.ini
+ExecStop&#x3D;&#x2F;home&#x2F;ts3&#x2F;teamspeak3-server_linux_amd64&#x2F;ts3server_startscript.sh stop
+PIDFile&#x3D;&#x2F;home&#x2F;ts3&#x2F;teamspeak3-server_linux_amd64&#x2F;ts3server.pid
+RestartSec&#x3D;15
+Restart&#x3D;always
+
+[Install]
+WantedBy&#x3D;multi-user.target</code></pre></div></figure>
 <p>保存后重载系统服务</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">systemctl daemon-reload</span><br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">systemctl daemon-reload</code></pre></div></figure>
 <p>设置开机自启，并且立即启动</p>
-<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nsis"><span class="hljs-params">system</span>ctl enable --now teamspeak<br><span class="hljs-comment"># 查看一下状态</span><br><span class="hljs-params">system</span>ctl status teamspeak<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">systemctl enable --now teamspeak
+# 查看一下状态
+systemctl status teamspeak</code></pre></div></figure>
 <p>应该可以看到正常运行了。</p>
 <figure>
 <img src="https://s2.loli.net/2025/01/30/yBExsecbjPVauSr.png" srcset="/img/loading.gif" lazyload
@@ -435,9 +457,10 @@ alt="连接界面" />
 TeamSpeak 问我们要一个 Key
 ，因为我们是连接的第一个用户，要作为服务器的管理员。这个码可以在服务端处找到。</p>
 <p>再来到服务器，运行命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> /home/teamspeak/teamspeak3-server_linux_amd64/logs/ts3server_*<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">cat &#x2F;home&#x2F;teamspeak&#x2F;teamspeak3-server_linux_amd64&#x2F;logs&#x2F;ts3server_*</code></pre></div></figure>
 <p>此时里面会有很多内容，我问需要寻找这样的一行：</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gauss">ServerAdmin privilege <span class="hljs-built_in">key</span> created, please <span class="hljs-keyword">use</span> the <span class="hljs-keyword">line</span> below<br>token=xxxxxxxxxxxxxxxxxxxx<br></code></pre></td></tr></table></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">ServerAdmin privilege key created, please use the line below
+token&#x3D;xxxxxxxxxxxxxxxxxxxx</code></pre></div></figure>
 <p>我们需要做的就是复制下面的那一行 Key （包括 ”token=“ ！），粘贴进
 TeamSpeak的那个框中。接下来我们就会以服务器管理员的身份登陆服务器。</p>
 <p>如果不出意外的话，我们就已经可以登陆服务器了。</p>
@@ -748,6 +771,12 @@ TeamSpeak的那个框中。接下来我们就会以服务器管理员的身份�
   });
 </script>
 
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/components/prism-core.min.js" ></script>
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" ></script>
+
+  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
 
   <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
