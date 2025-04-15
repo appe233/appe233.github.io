@@ -304,18 +304,18 @@ target="_blank" rel="noopener" href="https://dragonwell-jdk.io/#/index">Dragonwe
 。不过用别的发行版应该也不会有什么区别吧。下载下来的是一个压缩包，我们将解压后得到的文件夹放在一个合适的位置（比如放进<code>/home/YOUR_NAME/java</code>这样的地方）。</p>
 <p>就这样肯定是不行的，我们得把可执行文件添加进我们的 PATH
 。编辑当前用户的 shell 配置。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">export PATH&#x3D;&quot;$HOME&#x2F;java&#x2F;dragonwell-xxx&#x2F;bin:$PATH&quot;
-export JAVA_HOME&#x3D;&quot;$HOME&#x2F;java&#x2F;dragonwell-xxx&quot;
-source ~&#x2F;.profile # 我使用 Bash</code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/java/dragonwell-xxx/bin:<span class="token environment constant">$PATH</span>"</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">JAVA_HOME</span><span class="token operator">=</span><span class="token string">"<span class="token environment constant">$HOME</span>/java/dragonwell-xxx"</span>
+<span class="token builtin class-name">source</span> ~/.profile <span class="token comment"># 我使用 Bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <div class="note note-info">
             <p>理论上来说这是在声明一个环境变量，所以应该要放在一般带有 profile字段的配置内。</p><p>对于 bash 这是 <code>.profile</code></p><p>对于 zsh 这是 <code>.zprofile</code></p>
           </div>
 <p>接下来测试一下安装是否成功，我们现在输入<code>java --version</code>。如果成功则可以看到相关的版本信息。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java --version</code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">--version</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 输出
 openjdk 17.0.9 2023-10-17
 OpenJDK Runtime Environment (Alibaba Dragonwell Standard Edition)-17.0.9.0.10+9-GA (build 17.0.9+9)
-OpenJDK 64-Bit Server VM (Alibaba Dragonwell Standard Edition)-17.0.9.0.10+9-GA (build 17.0.9+9, mixed mode, sharing)</code></pre></div></figure>
+OpenJDK 64-Bit Server VM (Alibaba Dragonwell Standard Edition)-17.0.9.0.10+9-GA (build 17.0.9+9, mixed mode, sharing)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h4 id="下载-fabric">下载 Fabric</h4>
 <p>前往 <a target="_blank" rel="noopener" href="https://fabricmc.net">Fabric</a>官网里的<a
 target="_blank" rel="noopener" href="https://fabricmc.net/use/server/"><ruby>服务器下载<rt>Download
@@ -330,7 +330,7 @@ alt="下载页面" />
 <p>我们可以新建一个名为 server 的文件夹用于存放服务器文件。为什么要叫
 server 呢，这个我们后面将会解释。将下载的 jar 文件放入其内，然后我们用
 fabric 提供的命令启动服务器。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">java -Xmx2G -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui</code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-Xmx2G</span> <span class="token parameter variable">-jar</span> fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar <span class="token parameter variable">--nogui</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <div class="note note-warning">
             <p>根据选择的版本，命令可能会有变化，请使用网站上给出的。</p>
           </div>
@@ -340,15 +340,15 @@ EULA</a> 。如果我们要开服，则必须同意EULA。</p>
 <p>查看一下 eula.txt 文件</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#By changing the setting below to TRUE you are indicating your agreement to our EULA (https:&#x2F;&#x2F;aka.ms&#x2F;MinecraftEULA).
 #Mon Nov 18 20:37:05 CST 2024
-eula&#x3D;false # 改成 true 以同意 EULA</code></pre></div></figure>
+eula&#x3D;false # 改成 true 以同意 EULA<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>我们将这里的 false 改成 true ，就代表我们同意了。</p>
 <p>我们再一次运行前面启动命令，这时候如果没有别的问题，服务器就可以启动了。</p>
 <p>实际上我们并不想每次都输入一长串命令，我们的服务器也不可能只用 2G
 内存。所以我们要编写自己的启动命令。我们可以创建一个 shell
 脚本，将编写好的启动命令写在里面。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">touch start.sh</code></pre></div></figure>
-<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">#!&#x2F;bin&#x2F;bash
-java -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis&#x3D;200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent&#x3D;30 -XX:G1MaxNewSizePercent&#x3D;40 -XX:G1HeapRegionSize&#x3D;8M -XX:G1ReservePercent&#x3D;20 -XX:G1HeapWastePercent&#x3D;5 -XX:G1MixedGCCountTarget&#x3D;4 -XX:InitiatingHeapOccupancyPercent&#x3D;15 -XX:G1MixedGCLiveThresholdPercent&#x3D;90 -XX:G1RSetUpdatingPauseTimePercent&#x3D;5 -XX:SurvivorRatio&#x3D;32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold&#x3D;1 -Dusing.aikars.flags&#x3D;https:&#x2F;&#x2F;mcflags.emc.gs -Daikars.new.flags&#x3D;true -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui</code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">touch</span> start.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+<span class="token function">java</span> <span class="token parameter variable">-Xms10G</span> <span class="token parameter variable">-Xmx10G</span> <span class="token parameter variable">-XX:+UseG1GC</span> <span class="token parameter variable">-XX:+ParallelRefProcEnabled</span> <span class="token parameter variable">-XX:MaxGCPauseMillis</span><span class="token operator">=</span><span class="token number">200</span> <span class="token parameter variable">-XX:+UnlockExperimentalVMOptions</span> <span class="token parameter variable">-XX:+DisableExplicitGC</span> <span class="token parameter variable">-XX:+AlwaysPreTouch</span> <span class="token parameter variable">-XX:G1NewSizePercent</span><span class="token operator">=</span><span class="token number">30</span> <span class="token parameter variable">-XX:G1MaxNewSizePercent</span><span class="token operator">=</span><span class="token number">40</span> <span class="token parameter variable">-XX:G1HeapRegionSize</span><span class="token operator">=</span>8M <span class="token parameter variable">-XX:G1ReservePercent</span><span class="token operator">=</span><span class="token number">20</span> <span class="token parameter variable">-XX:G1HeapWastePercent</span><span class="token operator">=</span><span class="token number">5</span> <span class="token parameter variable">-XX:G1MixedGCCountTarget</span><span class="token operator">=</span><span class="token number">4</span> <span class="token parameter variable">-XX:InitiatingHeapOccupancyPercent</span><span class="token operator">=</span><span class="token number">15</span> <span class="token parameter variable">-XX:G1MixedGCLiveThresholdPercent</span><span class="token operator">=</span><span class="token number">90</span> <span class="token parameter variable">-XX:G1RSetUpdatingPauseTimePercent</span><span class="token operator">=</span><span class="token number">5</span> <span class="token parameter variable">-XX:SurvivorRatio</span><span class="token operator">=</span><span class="token number">32</span> <span class="token parameter variable">-XX:+PerfDisableSharedMem</span> <span class="token parameter variable">-XX:MaxTenuringThreshold</span><span class="token operator">=</span><span class="token number">1</span> <span class="token parameter variable">-Dusing.aikars.flags</span><span class="token operator">=</span>https://mcflags.emc.gs <span class="token parameter variable">-Daikars.new.flags</span><span class="token operator">=</span>true <span class="token parameter variable">-jar</span> fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar <span class="token parameter variable">--nogui</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <div class="note note-warning">
             <p>命令完全基于服务器的配置。<code>-Xmx10G</code>代表的是虚拟机占用的最大内存为10G，<code>-Xms10G</code>代表的是最小占用内存为10G。最后的效果就是服务端进程持续占用10G内存。这一块我基本一窍不通了，所以是从这个网站抄的。如果有更好选项不要管我的命令。<ahref="https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/"class="uri">https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/</a></p>
           </div>
@@ -368,7 +368,7 @@ online-mode&#x3D;true # 开启正版限制
 view-distance&#x3D;10 # 这个是服务器的视距
 simulation-distance&#x3D;10 # 这个是服务器的模拟距离，也就是强加载半径
 server-port&#x3D;25565 # 服务器端口
-spawn-protection&#x3D;0 # 如果你是生电服务器的话，建议关掉，这是出生点保护</code></pre></div></figure>
+spawn-protection&#x3D;0 # 如果你是生电服务器的话，建议关掉，这是出生点保护<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>至此我们就基本完成了对 MC 服务端的配置。</p>
 <h4 id="模组">模组</h4>
 <p>我们一般也会想要安装一些模组吧。 Fabric 的模组都很难做到像 Forge 、
@@ -724,10 +724,6 @@ shell 的配置文件里面。）</p></li>
   });
 </script>
 
-
-  <script  src="https://lib.baomitu.com/prism/1.29.0/components/prism-core.min.js" ></script>
-
-  <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js" ></script>
 
   <script  src="https://lib.baomitu.com/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
 
