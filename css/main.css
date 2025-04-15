@@ -835,54 +835,54 @@ i.iconfont {
 }
 :root {
   --color-mode: "light";
-  --body-bg-color: #eee;
-  --board-bg-color: #fff;
-  --text-color: #3c4858;
-  --sec-text-color: #718096;
-  --post-text-color: #2c3e50;
-  --post-heading-color: #1a202c;
-  --post-link-color: #0366d6;
-  --link-hover-color: #30a9de;
-  --link-hover-bg-color: #f8f9fa;
-  --line-color: #eaecef;
-  --navbar-bg-color: #2f4154;
-  --navbar-text-color: #fff;
-  --subtitle-color: #fff;
-  --scrollbar-color: #c4c6c9;
-  --scrollbar-hover-color: #a6a6a6;
+  --body-bg-color: #eff1f5;
+  --board-bg-color: #e6e9ef;
+  --text-color: #4c4f69;
+  --sec-text-color: #6c6f85;
+  --post-text-color: #4c4f69;
+  --post-heading-color: #8839ef;
+  --post-link-color: #1e66f5;
+  --link-hover-color: #fe640b;
+  --link-hover-bg-color: #dce0e8;
+  --line-color: #acb0be;
+  --navbar-bg-color: #8839ef;
+  --navbar-text-color: #eff1f5;
+  --subtitle-color: #eff1f5;
+  --scrollbar-color: #bcc0cc;
+  --scrollbar-hover-color: #9ca0b0;
   --button-bg-color: transparent;
-  --button-hover-bg-color: #f2f3f5;
+  --button-hover-bg-color: #dce0e8;
   --highlight-bg-color: #f6f8fa;
   --inlinecode-bg-color: rgba(175,184,193,0.2);
-  --fold-title-color: #3c4858;
-  --fold-border-color: #eaecef;
+  --fold-title-color: #4c4f69;
+  --fold-border-color: #acb0be;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --color-mode: "dark";
   }
   :root:not([data-user-color-scheme]) {
-    --body-bg-color: #181c27;
-    --board-bg-color: #252d38;
-    --text-color: #c4c6c9;
-    --sec-text-color: #a7a9ad;
-    --post-text-color: #c4c6c9;
-    --post-heading-color: #c4c6c9;
-    --post-link-color: #1589e9;
-    --link-hover-color: #30a9de;
-    --link-hover-bg-color: #364151;
-    --line-color: #435266;
-    --navbar-bg-color: #1f3144;
-    --navbar-text-color: #d0d0d0;
-    --subtitle-color: #d0d0d0;
-    --scrollbar-color: #687582;
-    --scrollbar-hover-color: #9da8b3;
+    --body-bg-color: #24273a;
+    --board-bg-color: #1e2030;
+    --text-color: #cad3f5;
+    --sec-text-color: #a5adcb;
+    --post-text-color: #cad3f5;
+    --post-heading-color: #c6a0f6;
+    --post-link-color: #8aadf4;
+    --link-hover-color: #f5a97f;
+    --link-hover-bg-color: #363a4f;
+    --line-color: #6e738d;
+    --navbar-bg-color: #c6a0f6;
+    --navbar-text-color: #24273a;
+    --subtitle-color: #cad3f5;
+    --scrollbar-color: #494d64;
+    --scrollbar-hover-color: #5b6078;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #46647e;
+    --button-hover-bg-color: #363a4f;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c4c6c9;
-    --fold-border-color: #435266;
+    --fold-title-color: #cad3f5;
+    --fold-border-color: #6e738d;
   }
   :root:not([data-user-color-scheme]) img {
     -webkit-filter: brightness(0.9);
@@ -900,27 +900,27 @@ i.iconfont {
 }
 @media not print {
   [data-user-color-scheme="dark"] {
-    --body-bg-color: #181c27;
-    --board-bg-color: #252d38;
-    --text-color: #c4c6c9;
-    --sec-text-color: #a7a9ad;
-    --post-text-color: #c4c6c9;
-    --post-heading-color: #c4c6c9;
-    --post-link-color: #1589e9;
-    --link-hover-color: #30a9de;
-    --link-hover-bg-color: #364151;
-    --line-color: #435266;
-    --navbar-bg-color: #1f3144;
-    --navbar-text-color: #d0d0d0;
-    --subtitle-color: #d0d0d0;
-    --scrollbar-color: #687582;
-    --scrollbar-hover-color: #9da8b3;
+    --body-bg-color: #24273a;
+    --board-bg-color: #1e2030;
+    --text-color: #cad3f5;
+    --sec-text-color: #a5adcb;
+    --post-text-color: #cad3f5;
+    --post-heading-color: #c6a0f6;
+    --post-link-color: #8aadf4;
+    --link-hover-color: #f5a97f;
+    --link-hover-bg-color: #363a4f;
+    --line-color: #6e738d;
+    --navbar-bg-color: #c6a0f6;
+    --navbar-text-color: #24273a;
+    --subtitle-color: #cad3f5;
+    --scrollbar-color: #494d64;
+    --scrollbar-hover-color: #5b6078;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #46647e;
+    --button-hover-bg-color: #363a4f;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c4c6c9;
-    --fold-border-color: #435266;
+    --fold-title-color: #cad3f5;
+    --fold-border-color: #6e738d;
   }
   [data-user-color-scheme="dark"] img {
     -webkit-filter: brightness(0.9);
