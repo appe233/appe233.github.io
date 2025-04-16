@@ -30,7 +30,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2024/11/28/p6A5LwvRKfmnDhC.png">
 <meta property="article:published_time" content="2024-11-28T13:56:28.000Z">
-<meta property="article:modified_time" content="2024-11-28T15:01:12.857Z">
+<meta property="article:modified_time" content="2025-04-16T03:49:54.752Z">
 <meta property="article:author" content="APPE">
 <meta property="article:tag" content="Minecraft">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2024年11月28日 晚上
+                    本文最后更新于 2025年4月16日 中午
                   
                 
               </p>
@@ -302,12 +302,12 @@ target="_blank" rel="noopener" href="https://dragonwell-jdk.io/#/index">Dragonwe
 。不过用别的发行版应该也不会有什么区别吧。下载下来的是一个压缩包，我们将解压后得到的文件夹放在一个合适的位置（比如放进<code>/home/YOUR_NAME/java</code>这样的地方）。</p>
 <p>就这样肯定是不行的，我们得把可执行文件添加进我们的 PATH
 。编辑当前用户的 shell 配置。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/java/dragonwell-xxx/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br><span class="hljs-built_in">export</span> JAVA_HOME=<span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/java/dragonwell-xxx&quot;</span><br><span class="hljs-built_in">source</span> ~/.profile <span class="hljs-comment"># 我使用 Bash</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">export PATH=&quot;$HOME/java/dragonwell-xxx/bin:$PATH&quot;<br>export JAVA_HOME=&quot;$HOME/java/dragonwell-xxx&quot;<br>source ~/.profile # 我使用 Bash<br></code></pre></td></tr></table></figure>
 <div class="note note-info">
             <p>理论上来说这是在声明一个环境变量，所以应该要放在一般带有 profile字段的配置内。</p><p>对于 bash 这是 <code>.profile</code></p><p>对于 zsh 这是 <code>.zprofile</code></p>
           </div>
 <p>接下来测试一下安装是否成功，我们现在输入<code>java --version</code>。如果成功则可以看到相关的版本信息。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java --version<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java --version<br></code></pre></td></tr></table></figure>
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment"># 输出</span><br><span class="hljs-attribute">openjdk</span> <span class="hljs-number">17</span>.<span class="hljs-number">0</span>.<span class="hljs-number">9</span> <span class="hljs-number">2023</span>-<span class="hljs-number">10</span>-<span class="hljs-number">17</span><br><span class="hljs-attribute">OpenJDK</span> Runtime Environment (Alibaba Dragonwell Standard Edition)-<span class="hljs-number">17.0.9.0</span>.<span class="hljs-number">10</span>+<span class="hljs-number">9</span>-GA (build <span class="hljs-number">17</span>.<span class="hljs-number">0</span>.<span class="hljs-number">9</span>+<span class="hljs-number">9</span>)<br><span class="hljs-attribute">OpenJDK</span> <span class="hljs-number">64</span>-Bit Server VM (Alibaba Dragonwell Standard Edition)-<span class="hljs-number">17.0.9.0</span>.<span class="hljs-number">10</span>+<span class="hljs-number">9</span>-GA (build <span class="hljs-number">17</span>.<span class="hljs-number">0</span>.<span class="hljs-number">9</span>+<span class="hljs-number">9</span>, mixed mode, sharing)<br></code></pre></td></tr></table></figure>
 <h4 id="下载-fabric">下载 Fabric</h4>
 <p>前往 <a target="_blank" rel="noopener" href="https://fabricmc.net">Fabric</a>官网里的<a
@@ -323,7 +323,7 @@ alt="下载页面" />
 <p>我们可以新建一个名为 server 的文件夹用于存放服务器文件。为什么要叫
 server 呢，这个我们后面将会解释。将下载的 jar 文件放入其内，然后我们用
 fabric 提供的命令启动服务器。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">java -Xmx2G -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">java -Xmx2G -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
 <div class="note note-warning">
             <p>根据选择的版本，命令可能会有变化，请使用网站上给出的。</p>
           </div>
@@ -337,8 +337,8 @@ EULA</a> 。如果我们要开服，则必须同意EULA。</p>
 <p>实际上我们并不想每次都输入一长串命令，我们的服务器也不可能只用 2G
 内存。所以我们要编写自己的启动命令。我们可以创建一个 shell
 脚本，将编写好的启动命令写在里面。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> start.sh<br></code></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>java -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=<span class="hljs-literal">true</span> -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim start.sh<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br>java -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true -jar fabric-server-mc.1.20.1-loader.0.16.9-launcher.1.0.1.jar --nogui<br></code></pre></td></tr></table></figure>
 <div class="note note-warning">
             <p>命令完全基于服务器的配置。<code>-Xmx10G</code>代表的是虚拟机占用的最大内存为10G，<code>-Xms10G</code>代表的是最小占用内存为10G。最后的效果就是服务端进程持续占用10G内存。这一块我基本一窍不通了，所以是从这个网站抄的。如果有更好选项不要管我的命令。<ahref="https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/"class="uri">https://aikar.co/2018/07/02/tuning-the-jvm-g1gc-garbage-collector-flags-for-minecraft/</a></p>
           </div>
@@ -351,11 +351,11 @@ EULA</a> 。如果我们要开服，则必须同意EULA。</p>
 NeoForge
 那样大型。不过生电服务器就不用担心这个问题了。我们来安装一些必备的模组。</p>
 <div class="note note-info">
-            <p>在以前 curse forge是常用的下载平台，这对我们下载模组到服务器其实不太友好，因为 curseforge并不提供直链。现在 <ahref="https://modrinth.com">modrinth</a>是一个更好的选择了！它不仅下载起来更方便舒适，对内容开发者的待遇也更好。我们应当多使用modrinth ！</p>
+            <p>在以前 curseforge是常用的下载平台，这对我们下载模组到服务器其实不太方便，因为 curseforge并不提供直链。现在 <ahref="https://modrinth.com">modrinth</a>是一个更好的选择了！它不仅下载起来更方便舒适，对内容开发者的待遇也更好。我们应当多使用modrinth ！</p>
           </div>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/fabric-api">Fabric api</a>
-这个是必要的</p></li>
+这个基本是必要的</p></li>
 <li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/lithium">Lithium</a>
 不改变游戏机制的优化模组，没有不加的理由</p></li>
 <li><p><a target="_blank" rel="noopener" href="https://modrinth.com/mod/appleskin">AppleSkin</a>
@@ -382,10 +382,10 @@ class="uri">https://mcdreforged.com/zh-CN</a></p>
 <p>我在这里只解释一下我安装 MCDR 的时候遇到的一个问题。</p>
 <p>我的系统是 debian 。我用了系统包管理器安装的 Python
 。然而在我当时尝试用
-<code>pip</code>安装包时给我报了一个错。这是因为一些很蠢的原因，
-debian不允许直接把包安装到现在的系统 Python 环境中。所以要做的事是，为
-MCDR 建立一个虚拟 Python
-环境，把这些包安装在这个虚拟环境，用这个虚拟环境启动 MCDR
+<code>pip</code>安装包时给我报了一个错。这是因为一些很蠢的原因， debian
+不允许直接把包安装到现在的系统 Python 环境中。所以要做的事是，为 MCDR
+建立一个虚拟 Python 环境，把这些包安装在这个虚拟环境，用这个虚拟环境启动
+MCDR
 。（或者也可以直接把这个虚拟环境当作系统环境来用，把激活虚拟环境的脚本加入到
 shell 的配置文件里面。）</p></li>
 </ul>
