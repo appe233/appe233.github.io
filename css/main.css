@@ -836,22 +836,22 @@ i.iconfont {
 :root {
   --color-mode: "light";
   --body-bg-color: #eff1f5;
-  --board-bg-color: #ffffff;
+  --board-bg-color: #eff1f5;
   --text-color: #4c4f69;
-  --sec-text-color: #6c6f85;
-  --post-text-color: #5c5f77;
-  --post-heading-color: #4c4f69;
-  --post-link-color: #7287fd;
-  --link-hover-color: #1e66f5;
-  --link-hover-bg-color: #e5e9f0;
+  --sec-text-color: #8c8fa1;
+  --post-text-color: #4c4f69;
+  --post-heading-color: #1e66f5;
+  --post-link-color: #1e66f5;
+  --link-hover-color: #7287fd;
+  --link-hover-bg-color: #e6e9ef;
   --line-color: #dce0e8;
-  --navbar-bg-color: #e6e9ef;
-  --navbar-text-color: #57595e;
-  --subtitle-color: #57595e;
+  --navbar-bg-color: #8839ef;
+  --navbar-text-color: #eff1f5;
+  --subtitle-color: #eff1f5;
   --scrollbar-color: #bcc0cc;
-  --scrollbar-hover-color: #a6adc8;
+  --scrollbar-hover-color: #9ca0b0;
   --button-bg-color: transparent;
-  --button-hover-bg-color: #e3e6ef;
+  --button-hover-bg-color: #dce0e8;
   --highlight-bg-color: #f6f8fa;
   --inlinecode-bg-color: rgba(175,184,193,0.2);
   --fold-title-color: #4c4f69;
@@ -862,27 +862,27 @@ i.iconfont {
     --color-mode: "dark";
   }
   :root:not([data-user-color-scheme]) {
-    --body-bg-color: #303446;
-    --board-bg-color: #414559;
-    --text-color: #c6d0f5;
-    --sec-text-color: #a5adce;
-    --post-text-color: #c6d0f5;
-    --post-heading-color: #c6d0f5;
-    --post-link-color: #babbf1;
-    --link-hover-color: #8aadf4;
-    --link-hover-bg-color: #51576d;
-    --line-color: #454966;
-    --navbar-bg-color: #292c3c;
-    --navbar-text-color: #c6d0f5;
-    --subtitle-color: #c6d0f5;
-    --scrollbar-color: #626880;
-    --scrollbar-hover-color: #737994;
+    --body-bg-color: #24273a;
+    --board-bg-color: #24273a;
+    --text-color: #cad3f5;
+    --sec-text-color: #b8c0e0;
+    --post-text-color: #cad3f5;
+    --post-heading-color: #8aadf4;
+    --post-link-color: #8aadf4;
+    --link-hover-color: #b7bdf8;
+    --link-hover-bg-color: #363a4f;
+    --line-color: #5b6078;
+    --navbar-bg-color: #c6a0f6;
+    --navbar-text-color: #24273a;
+    --subtitle-color: #cad3f5;
+    --scrollbar-color: #494d64;
+    --scrollbar-hover-color: #6e738d;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #51576d;
+    --button-hover-bg-color: #494d64;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c6d0f5;
-    --fold-border-color: #454966;
+    --fold-title-color: #cad3f5;
+    --fold-border-color: #5b6078;
   }
   :root:not([data-user-color-scheme]) img {
     -webkit-filter: brightness(0.9);
@@ -900,27 +900,27 @@ i.iconfont {
 }
 @media not print {
   [data-user-color-scheme="dark"] {
-    --body-bg-color: #303446;
-    --board-bg-color: #414559;
-    --text-color: #c6d0f5;
-    --sec-text-color: #a5adce;
-    --post-text-color: #c6d0f5;
-    --post-heading-color: #c6d0f5;
-    --post-link-color: #babbf1;
-    --link-hover-color: #8aadf4;
-    --link-hover-bg-color: #51576d;
-    --line-color: #454966;
-    --navbar-bg-color: #292c3c;
-    --navbar-text-color: #c6d0f5;
-    --subtitle-color: #c6d0f5;
-    --scrollbar-color: #626880;
-    --scrollbar-hover-color: #737994;
+    --body-bg-color: #24273a;
+    --board-bg-color: #24273a;
+    --text-color: #cad3f5;
+    --sec-text-color: #b8c0e0;
+    --post-text-color: #cad3f5;
+    --post-heading-color: #8aadf4;
+    --post-link-color: #8aadf4;
+    --link-hover-color: #b7bdf8;
+    --link-hover-bg-color: #363a4f;
+    --line-color: #5b6078;
+    --navbar-bg-color: #c6a0f6;
+    --navbar-text-color: #24273a;
+    --subtitle-color: #cad3f5;
+    --scrollbar-color: #494d64;
+    --scrollbar-hover-color: #6e738d;
     --button-bg-color: transparent;
-    --button-hover-bg-color: #51576d;
+    --button-hover-bg-color: #494d64;
     --highlight-bg-color: #303030;
     --inlinecode-bg-color: rgba(99,110,123,0.4);
-    --fold-title-color: #c6d0f5;
-    --fold-border-color: #454966;
+    --fold-title-color: #cad3f5;
+    --fold-border-color: #5b6078;
   }
   [data-user-color-scheme="dark"] img {
     -webkit-filter: brightness(0.9);
